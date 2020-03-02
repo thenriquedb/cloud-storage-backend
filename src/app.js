@@ -5,11 +5,13 @@ const routes = require('./routes');
 class App {
   constructor() {
     this.server = express();
+    this.middlewares();
+    this.routes();
   }
 
   middlewares() {
     this.server.use(express.json());
-    this.server.use(morgan());
+    this.server.use(morgan('dev'));
     this.server.use(express.urlencoded({ extended: true }));
   }
 
