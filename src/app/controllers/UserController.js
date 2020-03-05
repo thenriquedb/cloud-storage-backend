@@ -13,6 +13,10 @@ class UserController {
 
     return res.json({ name, email, id });
   }
+
+  async update(req, res) {
+    return res.json({ ok: true });
+  }
 }
 
 module.exports = new UserController();
