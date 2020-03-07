@@ -1,7 +1,8 @@
-const Sequelize = require("sequelize");
-const dbConfig = require("../config/database");
+const Sequelize = require('sequelize');
+const dbConfig = require('../config/database');
 
-const User = require("../app/models/User");
+const User = require('../app/models/User');
+const File = require('../app/models/File');
 
 class Database {
   constructor() {
@@ -12,6 +13,9 @@ class Database {
     this.connection = new Sequelize(dbConfig);
 
     User.init(this.connection);
+    File.init(this.connection);
+
+    File.associate(this.connection.models);
   }
 }
 

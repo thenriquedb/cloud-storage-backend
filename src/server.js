@@ -1,5 +1,6 @@
 require('dotenv').config();
-const app = require('./app');
 require('./database');
+
+const app = require('./app');
 
 app.listen(3333);

@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
   const [, token] = authHeader.split(' ');
 
   try {
-    const decoded = promisify(jwt.sign)(token, authConfig.secret);
+    const decoded = await promisify(jwt.verify)(token, authConfig.secret);
     req.user_id = decoded.id;
 
     return next();
